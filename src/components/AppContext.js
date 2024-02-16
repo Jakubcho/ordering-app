@@ -24,17 +24,17 @@ export default function AppProvider({children}){
 
   const ls = typeof window !== 'undefined' ? window.localStorage : null;
 
-  function saveCartProductsToLocalStorage(cartProducts){
-    if(ls){
-      ls.setItem('cart', JSON.stringify(cartProducts));
-    }
-  }
-
   useEffect(() => {
     if(ls && ls.getItem('cart')){
       setCartProducts(JSON.parse(ls.getItem('cart')));
     }
   },[]);
+
+  function saveCartProductsToLocalStorage(cartProducts){
+    if(ls){
+      ls.setItem('cart', JSON.stringify(cartProducts));
+    }
+  }
 
   function clearCart(){
     setCartProducts([]);
@@ -60,7 +60,7 @@ export default function AppProvider({children}){
   }
   return(
     <SessionProvider>
-      <CartContext.Provider value={{cartProducts, setCartProducts, addToCart, removeCartProduct, clearCart}}>
+      <CartContext.Provider value={{cartProducts, setCartProducts, addToCart, removeCartProduct, clearCart,}}>
         {children}
       </CartContext.Provider>
     </SessionProvider>

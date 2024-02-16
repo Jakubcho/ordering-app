@@ -39,7 +39,7 @@ export const authOptions = {
         }
         return null
       }
-    })
+    }),
   ],
 }
 

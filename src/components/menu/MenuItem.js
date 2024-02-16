@@ -5,7 +5,7 @@ import MenuItemTile from './MenuItemTile';
 import Image from 'next/image'
 import FlyingButton from 'react-flying-item';
 
-const MenuItem = (menuItem) => {
+export default function MenuItem(menuItem){
   const {image, name, description,basePrice,sizes,extraIngredientPrices } = menuItem;
   const [selectedSize,setSelectedSize] = useState(sizes?.[0] || null );
   const [selectedExtras, setSelectedExtras ] = useState([]);
@@ -13,15 +13,18 @@ const MenuItem = (menuItem) => {
   const {addToCart} = useContext(CartContext);
 
   async function handleAddToCartButtonClick(){
-    const hasOptions = sizes.length > 0 && extraIngredientPrices.length > 0;
-
+    const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
+    console.log('start')
+    console.log(hasOptions)
     if(hasOptions && !showPopup){
       setShowPopup(true);
       return;
     }
     addToCart(menuItem, selectedSize, selectedExtras);
+    console.log('dodanie')
     await new Promise(resolve => setTimeout(resolve, 1000));
     setShowPopup(false);
+    console.log('gaszenie')
   }
 
   function handleExtraThingClick(ev,extraThing){
@@ -109,5 +112,3 @@ const MenuItem = (menuItem) => {
   </>
   )
 }
-
-export default MenuItem
