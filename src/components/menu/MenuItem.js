@@ -14,17 +14,13 @@ export default function MenuItem(menuItem){
 
   async function handleAddToCartButtonClick(){
     const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
-    console.log('start')
-    console.log(hasOptions)
     if(hasOptions && !showPopup){
       setShowPopup(true);
       return;
     }
     addToCart(menuItem, selectedSize, selectedExtras);
-    console.log('dodanie')
     await new Promise(resolve => setTimeout(resolve, 1000));
     setShowPopup(false);
-    console.log('gaszenie')
   }
 
   function handleExtraThingClick(ev,extraThing){

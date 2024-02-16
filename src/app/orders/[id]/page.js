@@ -10,6 +10,7 @@ export default function OrderPage() {
   const {clearCart} = useContext(CartContext);
   const {id} = useParams();
   const [order, setOrder] = useState();
+  const [loadingOrder, setLoadingOrder] = useState(true);
   useEffect(() => {
     if(typeof window.console !== 'undefinded'){
       if(window.location.href.includes('clear-cart=1')){
@@ -17,9 +18,11 @@ export default function OrderPage() {
       }
     }
     if(id){
+      setLoadingOrder(true);
       fetch('/api/orders?_id='+id).then(res => {
         res.json().then(orderData => {
           setOrder(orderData);
+          setLoadingOrder(false);
         })
       })
     }
@@ -39,6 +42,9 @@ export default function OrderPage() {
             <p>We will call you when your order will be on the way</p>
           </div>
       </div>
+      {loadingOrder && (
+        <div>Loading order...</div>
+      )}
     {order && (
       <div className="grid md:grid-cols-2 md:gap-16">
         <div>
