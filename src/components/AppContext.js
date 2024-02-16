@@ -13,10 +13,10 @@ export function cartProductPrice(cartProduct){
   }
   if(cartProduct?.extras.lenght>0 ){
     for(const extra of cartProduct.extras) {
-      price += extras.price
+      price += extra.price
     }
   }
-  return price
+  return price;
 }
 
 export default function AppProvider({children}){

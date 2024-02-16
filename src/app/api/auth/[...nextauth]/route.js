@@ -1,5 +1,5 @@
 import { User } from "@/app/models/User";
-import mongoose from "mongoose";
+import * as mongoose from "mongoose";
 import NextAuth, { getServerSession } from "next-auth"
 import bcrypt from 'bcrypt';
 import GoogleProvider from 'next-auth/providers/google';
@@ -36,7 +36,6 @@ export const authOptions = {
         const passwordOk = user && bcrypt.compareSync(password, user.password);
         if(passwordOk){
           return user;
-
         }
         return null
       }
@@ -46,7 +45,7 @@ export const authOptions = {
 
 export async function isAdmin(){
   const session = await getServerSession(authOptions);
-  const userEmail = session?.user.email;
+  const userEmail = session?.user?.email;
   if(!userEmail){
     return false
   }
