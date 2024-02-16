@@ -5,9 +5,7 @@ import { SectionHeaders } from "../components/layout/SectionHeaders";
 
 export default function Home() {
   return (
-
     <>
-    https://youtu.be/jaMJnbRjUos?t=11090
       <Hero/>
       <HomeMenu/>
       <section className="text-center my-16" id="about">
