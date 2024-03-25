@@ -62,7 +62,7 @@ export default function MenuItem(menuItem){
             <p className='text-center text-gray-500 text-sm mb-2'>{description}</p>
             {sizes?.length >0 && (
               <div className='p-2'>
-                <h3 className='text-center text-gray-700'>Pick your size</h3>
+                <h3 className='text-center text-gray-700'>Wybierz swój rozmiar</h3>
                 {sizes.map(size => (
                   <label key={size._id} className='flex items-center gap-2 p-4 border rounded-md mb-1'>
                     <input
@@ -78,7 +78,7 @@ export default function MenuItem(menuItem){
             )}
             {extraIngredientPrices?.length>0 && (
               <div className='p-2'>
-                <h3 className='text-center text-gray-700'>Any extras?</h3>
+                <h3 className='text-center text-gray-700'>Jakieś dodatki?</h3>
                 {extraIngredientPrices.map(extraThing => (
 
                   <label key={extraThing._id} className='flex items-center gap-2 p-4 border rounded-md mb-1'>
@@ -93,7 +93,7 @@ export default function MenuItem(menuItem){
             <FlyingButton targetTop={'5%'} targetLeft={'95%'} src={image}>
               <div className="primary sticky bottom-2"
                onClick={() => handleAddToCartButtonClick()}>
-                Add to cart ${selectedPrice}
+                Dodaj do koszyka {selectedPrice} zł
               </div>
             </FlyingButton>
             <button className='mt-2' onClick={() => setShowPopup(false)}>Cancel</button>

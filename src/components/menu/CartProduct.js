@@ -13,7 +13,7 @@ export default function CartProduct({product, onRemove,index}) {
       <h3 className="font-semibold">{product.name}</h3>
       {product.size && (
         <div className="text-sm text-gray-700">
-          Size: <span>{product.size.name}</span>
+          Rozmiar: <span>{product.size.name}</span>
         </div>
       )}
       {product.extras?.length > 0 && (
@@ -25,7 +25,7 @@ export default function CartProduct({product, onRemove,index}) {
       )}
     </div>
     <div className="text-lg font-semibold">
-      ${cartProductPrice(product)}
+      {cartProductPrice(product)} zł
     </div>
     {!!onRemove && (
       <div className="ml-2">

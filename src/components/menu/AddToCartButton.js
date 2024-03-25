@@ -16,7 +16,7 @@ export default function AddToCartButton({
 
         >
           <div onClick={onClick}>
-            Add to cart ${basePrice}
+            Dodaj do koszyka  {basePrice} zł
           </div>
         </FlyingButton>
       </div>
@@ -28,7 +28,7 @@ export default function AddToCartButton({
       type="button"
       onClick={onClick}
       className='mt-4  bg-primary text-white rounded-full px-8 py-2'>
-      <span>Add to cart (from ${basePrice})</span>
+      <span>Dodaj do koszyka (od {basePrice} zł)</span>
     </button>
   )
 }

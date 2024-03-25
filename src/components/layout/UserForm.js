@@ -33,9 +33,9 @@ export default function UserForm({user, onSave}){
       </div>
       <form className="grow" onSubmit={ev => onSave(ev, {name:userName, image, phone, admin, streetAddress, city, country, postalCode})}>
         <label>
-          Frist and last name
+          Imię i nazwisko
         </label>
-        <input type="text" placeholder="Frist and last name"  value={userName} onChange={ev => setUserName(ev.target.value)} />
+        <input type="text" placeholder="Imię i nazwisko"  value={userName} onChange={ev => setUserName(ev.target.value)} />
         <label>
           Email
         </label>
@@ -53,7 +53,7 @@ export default function UserForm({user, onSave}){
             </label>
           </div>
         )}
-        <button type="submit">Save</button>
+        <button type="submit">Zapisz</button>
       </form>
     </div>
   )

@@ -6,13 +6,13 @@ export default function DeleteButton({label, onDelete}){
     return (
       <div className="fixed bg-black/80 flex items-center inset-0 h-full justify-center ">
         <div className="bg-white p-4 rounded-lg">
-          <div>Are you sure you want to delete?</div>
+          <div>Czy jesteś pewny że chcesz usunąć?</div>
           <div className="flex gap-2 mt-1">
-            <button type="button" onClick={() => setShowConfrim(false)}>Cancel</button>
+            <button type="button" onClick={() => setShowConfrim(false)}>Nie</button>
             <button type="button" className="primary" onClick={() => {
                 onDelete();
                 setShowConfrim(false);
-              }}>Yes,&nbsp;delete!</button>
+              }}>Tak,&nbsp;usuń!</button>
           </div>
         </div>
       </div>

@@ -6,8 +6,8 @@ export async function POST(req){
   mongoose.connect(process.env.MONGO_URL);
   const data = await req.json();
   if(await isAdmin()){
-    const mentuItemDoc = await MenuItem.create(data);
-    return Response.json(mentuItemDoc);
+    const menuItemDoc = await MenuItem.create(data);
+    return Response.json(menuItemDoc);
   } else {
     return Response.json({});
   }

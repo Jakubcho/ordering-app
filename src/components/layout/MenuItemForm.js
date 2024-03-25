@@ -22,6 +22,8 @@ export default function MenuItemForm({onSubmit, menuItem}){
     })
   },[])
 
+  console.log(category);
+
   return (
     <form onSubmit={ev =>
      onSubmit(ev, {
@@ -36,25 +38,26 @@ export default function MenuItemForm({onSubmit, menuItem}){
             <EditableImage link={image} setLink={setImage} />
           </div>
           <div className='grow'>
-            <label>Item name</label>
+            <label>Nazwa</label>
             <input
              type="text"
              value={name}
              onChange={ev => setName(ev.target.value)} />
-            <label>Description</label>
+            <label>Opis</label>
             <input
              type="text"
              value={description}
              onChange={ev => setDescription(ev.target.value)} />
-            <label>Category</label>
-            <select value={category} onChange={ev => setCategory(ev.target.value)}>
+            <label>Kategoria</label>
+            <select name="category" value={category} onChange={ev => setCategory(ev.target.value)}>
+
               {categories?.length>0 && categories.map(c => (
                 <option key={c._id} value={c._id}>
                   {c.name}
                 </option>
               ))}
             </select>
-            <label>Base price</label>
+            <label>Cena</label>
             <input
              type="text"
              value={basePrice}
@@ -69,7 +72,7 @@ export default function MenuItemForm({onSubmit, menuItem}){
              addLabel={'Add ingredients prices'}
              props={extraIngredientPrices}
              setProps={setExtraIngredientPrices}/>
-            <button type="submit">Save</button>
+            <button type="submit">Zapisz</button>
           </div>
         </div>
       </form>
